@@ -6,7 +6,7 @@ require 'net/ssh'
 
 POD_CONFIG_TMPL = 'test_config_template.xml.erb'
 
-VSRX_NUM = 3
+VSRX_NUM = 300
 
 VSRX_USER = 'root'
 VSRX_PASS = 'admin123'
@@ -79,11 +79,10 @@ def main
     config = generate_config rid
 
     puts "Waiting to boot the vSRX ..."
-    #wait_ping(addr)
+    wait_ping(addr)
 
     puts "Complete to boot. Pushing a startup configuration ..."
-    #put_configuration(config, addr)
-    puts config
+    put_configuration(config, addr)
   }
 
   puts "Finished!" 
